@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 24px;
+}
+
+.wrapper {
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto 0 auto;
+}
+
+header {
+    flex-basis: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bold;
+}
+
+
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+main div {
+    flex-basis: calc(100%/6);
+    max-height: 133px;
+    border: 1px solid white;
+}
+
+div.hidden {
+    background-color: #333;
+    cursor: pointer;
+}
+
+footer {
+    flex-basis: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+}
+
+footer a {
+    color: #000;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #09c690;
+    cursor: pointer;
+}
+
+/* Klasy dla poszczególnych kart */
+
+.indianRed {
+    background-color: #cd5c5c;
+}
+
+.crimson {
+    background-color: #dc143c;
+}
+
+.hotPink {
+    background-color: #ff69b4;
+}
+
+.deepPink {
+    background-color: #ff1493;
+}
+
+.coral {
+    background-color: #ff7f50;
+}
+
+.orangeRed {
+    background-color: #ff4500;
+}
+
+.orange {
+    background-color: #ffa500;
+}
+
+.khaki {
+    background-color: #f0e68c;
+}
+
+.darkKhaki {
+    background-color: #bdb76b;
+}
+
+.indigo {
+    background-color: #4b0082;
+}
+
+.darkOrhid {
+    background-color: #9932cc;
+}
+
+.greenYellow {
+    background-color: #adff2f;
+}
+
+.forestGreen {
+    background-color: #228b22;
+}
+
+.darkOliveGreen {
+    background-color: #556b2f;
+}
+
+.cadetBlue {
+    background-color: #5f9ea0;
+}
+
+.deepSkyBlue {
+    background-color: #00bfff;
+}
+
+.chocolate {
+    background-color: #d2691e;
+}
+
+.brown {
+    background-color: #a52a2a;
+}
+
+@media (max-width: 576px) {
+    body {
+        font-size: 16px;
+    }
+}
