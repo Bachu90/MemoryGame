@@ -1,10 +1,8 @@
 //colors database
 const db = ["indianRed", "indianRed", "crimson", "crimson", "hotPink", "hotPink", "deepPink", "deepPink", "coral", "coral", "orangeRed", "orangeRed", "orange", "orange", "khaki", "khaki", "darkKhaki", "darkKhaki", "indigo", "indigo", "darkOrhid", "darkOrhid", "greenYellow", "greenYellow", "forestGreen", "forestGreen", "darkOliveGreen", "darkOliveGreen", "cadetBlue", "cadetBlue", "deepSkyBlue", "deepSkyBlue", "chocolate", "chocolate", "brown", "brown"];
 
-//Settings
-const cardsAmount = 36;
-
 //Globals
+let cardsAmount = document.querySelector("#cardSlider").value;
 let colors = [];
 let allCards;
 let hiddenCards;
@@ -49,6 +47,24 @@ function drawCards(x) {
 }
 
 function startGame() {
+    let counter = 3;
+    const counterDiv = document.createElement("div");
+    counterDiv.textContent = counter;
+    counterDiv.classList.add("countdown");
+    document.querySelector(".game").appendChild(counterDiv);
+    const countdown = setInterval(function () {
+        counter--;
+        if (counter == 0) {
+            counterDiv.textContent = "START!";
+            counterDiv.classList.add("start");
+        } else if (counter < 0) {
+            clearInterval(countdown);
+            counterDiv.remove();
+        } else {
+            counterDiv.textContent = counter;
+        }
+    }, 1000);
+
     setTimeout(function () {
         allCards = document.querySelectorAll("main div");
         allCards.forEach(card => {
@@ -56,7 +72,7 @@ function startGame() {
             card.addEventListener("click", showCard);
         });
         startTimer = setInterval(timer(), 1000);
-    }, 2000);
+    }, 3000);
 }
 
 
@@ -104,7 +120,32 @@ function showCards(e) {
 }
 const showCard = showCards();
 
+function menuStart() {
+    document.querySelector(".game").classList.remove("inactive");
+    document.querySelector(".startView").classList.add("inactive");
+    drawCards(cardsAmount);
+    setTimeout(startGame, 1000);
+
+}
+
+function menuQuit() {
+    document.querySelector(".startView").classList.add("inactive");
+    setTimeout(function () {
+        window.close();
+    }, 1000);
+}
+
+function run() {
+    document.querySelector("[data-name=start]").addEventListener("click", menuStart);
+    document.querySelector("[data-name=quit]").addEventListener("click", menuQuit);
+
+    document.querySelector(".sliderValue").textContent = cardsAmount;
+    document.querySelector("#cardSlider").addEventListener("input", function () {
+        cardsAmount = document.querySelector("#cardSlider").value;
+        document.querySelector(".sliderValue").textContent = cardsAmount;
+    });
+}
+
 //Run
 
-drawCards(cardsAmount);
-startGame();
+run();

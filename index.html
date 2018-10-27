@@ -7,18 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Gra Memory</title>
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bangers&amp;subset=latin-ext" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="wrapper">
+    <div class="game inactive">
         <header>
-            <p>Liczba prób: <span class="attempts">0</span></p>
-            <p>Czas: <span class="time">00:00:00</span></p>
+            <p>Attempts: <span class="attempts">0</span></p>
+            <p>Time: <span class="time">00:00:00</span></p>
         </header>
         <main>
-
+            <!-- Game Board -->
         </main>
+        <footer>
+            <p>Powered by <a href="http://www.grzegorzbach.pl" target="_blank">Grzegorz Bach</a></p>
+        </footer>
+    </div>
+    <div class="startView">
+        <h1>memory game</h1>
+        <div class="cardsAmmount">
+            <p>How many cards?</p>
+            <div class="slidecontainer">
+                <input type="range" min="4" max="36" value="18" step="2" class="slider" id="cardSlider">
+                <span class="sliderValue"></span>
+            </div>
+        </div>
+
+        <button data-name="start">Start Game</button>
+        <button data-name="quit">Quit</button>
         <footer>
             <p>Powered by <a href="http://www.grzegorzbach.pl" target="_blank">Grzegorz Bach</a></p>
         </footer>
