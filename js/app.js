@@ -27,10 +27,18 @@ function checkPoints(points, attempts) {
     if (points >= (cardsAmount / 2)) {
         setTimeout(function () {
             clearInterval(startTimer);
-            alert("Wygrałeś! Twój czas to: " + document.querySelector("span.time").textContent + ". Ilość prób: " + attempts);
-            location.reload();
+            gameOver(attempts);
         }, 200);
     }
+}
+
+function gameOver(attempts) {
+    document.querySelector(".endView").classList.remove("inactive");
+    document.querySelector(".endView .attempts").textContent = attempts;
+    document.querySelector(".endView .time").textContent = document.querySelector(".game span.time").textContent;
+    document.querySelector(".restart").addEventListener("click", function () {
+        location.reload();
+    })
 }
 
 function drawCards(x) {

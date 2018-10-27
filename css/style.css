@@ -92,35 +92,22 @@ footer a:hover {
     height: 100vh;
     transform: scale(100%);
     transition: 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .startView.inactive {
     transform: scale(0);
 }
 
-.startView h1 {
+.startView h1,
+.endView h1 {
     font-size: 100px;
     width: 100%;
     text-align: center;
-    margin-top: 10%;
     color: #fff;
     text-shadow: 5px 5px #ff4500;
-}
-
-.startView footer {
-    color: #fff;
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-
-}
-
-.startView footer a {
-    color: #fff;
-}
-
-.startView footer a:hover {
-    color: #ff4500;
 }
 
 .cardsAmmount {
@@ -208,10 +195,12 @@ footer a:hover {
     font-size: 32px;
 }
 
-.startView button {
+.startView button,
+.endView button {
     display: block;
     width: 200px;
     height: 50px;
+    flex-basis: 50px;
     margin: 30px auto;
     background-color: #fff;
     border-style: none;
@@ -223,9 +212,44 @@ footer a:hover {
     cursor: pointer;
 }
 
-.startView button:hover {
+.startView button:hover,
+.endView button:hover {
     box-shadow: 0 0 0 7px #ffa500, 0 0 0 12px #fff;
     color: #ff4500;
+}
+
+.endView {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #ffa500;
+    width: 100%;
+    height: 100vh;
+    transition: 1s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.endView.inactive {
+    top: -100%;
+    left: 0;
+}
+
+.result {
+    margin-top: 50px;
+}
+
+.result p {
+    color: #fff;
+    font-size: 50px;
+    text-align: center;
+    padding: 10px;
+}
+
+.endView button {
+    margin-top: 50px;
 }
 
 /* Klasy dla poszczególnych kart */
@@ -321,5 +345,14 @@ footer a:hover {
 
     footer {
         font-size: 16px;
+    }
+
+    .startView h1,
+    .endView h1 {
+        font-size: 60px;
+    }
+
+    .result p {
+        font-size: 32px;
     }
 }
